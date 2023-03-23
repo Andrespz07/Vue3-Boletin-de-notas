@@ -1,6 +1,6 @@
 <script setup>
 
-const props = headerProps({
+const props = defineProps({
   title:{
     type: String,
     required: true,
@@ -18,6 +18,7 @@ header{
   display: flex;
   align-items: center;
   justify-content: center;
+  color: cadetblue;
   
 }
 </style>
