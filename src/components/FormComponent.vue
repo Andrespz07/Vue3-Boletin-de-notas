@@ -1,11 +1,11 @@
 <script setup>
 import { ref } from "vue";
 import TableComponent from "./TableComponent.vue";
-// import { computed } from "@vue/reactivity";
 import Class from '../assets/js/Class.js';
 import Student from "../assets/js/Student.js";
 import { existStudent } from '../assets/js/ExistStudent.js';
 import { existClass } from '../assets/js/ExistClass';
+import {IsEmpty} from '../assets/js/IsEmpty'
 
 let students = new Array();
 
@@ -27,12 +27,12 @@ function createStudent(){
     let student = new Student();
     student.setNameStudent(saveName());
     if (existStudent(students, student)) {
-      addCourseToStudent(students.find(element => element.NameStudent === student.NameStudent));
+      addClassToStudent(students.find(element => element.NameStudent === student.NameStudent));
       return
     }
     if (!existStudent(students, student)) {
       students.push(student);
-      addCourseToStudent(student);
+      addClassToStudent(student);
       NameInput.value = ''
     }
     return
@@ -41,23 +41,15 @@ function createStudent(){
     alert("The name student ")
   }
 }
-function addCourseToStudent(student){
+function addClassToStudent(student){
   if (!IsEmpty(schoolClass.value)){
-    let classes = new Course(saveClassName(),saveClassNote());
-    if(existCourse(student.Class, classes)){
-    //   if(confirm('The course exist but you can overide the note')){
-    //     let index = student.Class.map(producto => producto.Name).indexOf(course.Name);
-    //     student.modifyCourse(course, index);
-    //     schoolClass.value = ''
-        
-    //     return
-    //   }
-      
+    let classes = new Class(saveClassName(),saveClassNote());
+    if(existClass(student.Class, classes)){
       
     }
-    if(!existCourse(student.Class, classes)){
+    if(!existClass(student.Class, classes)){
       
-      student.addCourse(course);
+      student.addClass(classes);
       schoolClass.value = ''
       return
     }
@@ -67,10 +59,7 @@ function addCourseToStudent(student){
   }
   
 }
-// function showStudents(){
-//   console.log(students);
-  
-// }
+
 </script>
 <template>
     <section id="register-zone">
@@ -87,7 +76,7 @@ function addCourseToStudent(student){
       <table v-for="item in students">
         <tr>
           <th scope="row">student</th>
-          <th>Course</th>
+          <th>Class</th>
           <th>Note</th>
         </tr>
         

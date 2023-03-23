@@ -1,4 +1,4 @@
-// import { IsEmpty } from '../js/IsEmpty';
+
 export default class Student {
   #NameStudent;
   #Class;
@@ -19,10 +19,10 @@ export default class Student {
   get Class() {
     return this.#Class;
   }
-  addCourse(course){
+  addClass(course){
     this.#Class.push(course);
   }
-  modifyCourse(course, index){
+  modifyClass(course, index){
     this.#Class.splice(index, 1, course)
   }
 }
