@@ -5,13 +5,13 @@ const props = defineProps({
     type: String,
     default: null,
   },
-  class: {
+  classes: {
     type: String,
     default: null,
   },
   note: {
     type: Number,
-    default: null,
+    required: true,
   },
 });
 const evaluation = computed(() => {
@@ -40,8 +40,15 @@ const evaluation = computed(() => {
   <table>
     <tr>
       <th>{{ name }}</th>
-      <td>{{ class }}</td>
+      <td>{{ classes }}</td>
       <td>{{ evaluation }}</td>
     </tr>
   </table>
 </template>
+
+<style lang="scss">
+
+table{
+  border: solid 4px red;
+}
+</style>

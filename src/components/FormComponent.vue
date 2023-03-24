@@ -75,7 +75,7 @@ function addClassToStudent(student){
     <section id="table-zone">
       <table v-for="item in students">
         <tr>
-          <th scope="row">student</th>
+          <th>student</th>
           <th>Class</th>
           <th>Note</th>
         </tr>
@@ -92,5 +92,8 @@ function addClassToStudent(student){
   </template>
 
 <style lang="scss" scoped>
+table{
+  border: dotted 3px green;
+}
     
 </style>
