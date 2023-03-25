@@ -12,7 +12,7 @@ let students = new Array();
 const NameInput = ref("");
 const schoolClass = ref("");
 const noteClass = ref(0);
-// methods
+
 function saveName(){
   return NameInput.value;
 }
@@ -80,10 +80,11 @@ function addClassToStudent(student){
       <th>Notes</th>
     </tr>
     <TableComponent v-for="item in students"
-      :name="item.NameStudent"
-      :classes="item.Class[0].Name"
-      :note="item.Class[0].Note"
-    />
+  :name="item.NameStudent"
+  :classes="item.Class.length > 0 ? item.Class[0].Name : ''"
+  :note="item.Class.length > 0 ? item.Class[0].Note : ''"
+/>
+
   </table>
 
       
