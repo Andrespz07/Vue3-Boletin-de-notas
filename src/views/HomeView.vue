@@ -8,7 +8,7 @@ import TableComponent from '../components/TableComponent.vue';
 
 <template>
   <main>
-  <HeaderComponent :headerProps="'Boletín de notas'">
+  <HeaderComponent :title="'Notes student'">
   </HeaderComponent>
   <FormComponent></FormComponent>
   <TableComponent></TableComponent>
@@ -17,7 +17,7 @@ import TableComponent from '../components/TableComponent.vue';
 <style lang="scss" scoped>
   main{
     background-color: darkslategrey;
-    width: 100vw;
+    width: auto;
     height: 100vh;
   }
 </style>

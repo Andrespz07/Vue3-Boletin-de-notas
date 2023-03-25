@@ -67,33 +67,56 @@ function addClassToStudent(student){
       <input class="inputs" type="text" v-model="NameInput"  placeholder="Enter a student name"/>
       <input class="inputs" type="text" v-model="schoolClass" placeholder="Enter a class name"/>
       <input class="inputs" type="number" v-model="noteClass" minlength="1" maxlength="3" min="0" max="10" />
-      <div class="buttons-apartate">
+      <div class="buttons-zone">
         <button class="buttons" @click="createStudent">Add</button>
         <button class="buttons" @click="showStudents">Send</button>
       </div>
     </section>
     <section id="table-zone">
-      <table v-for="item in students">
-        <tr>
-          <th>student</th>
-          <th>Class</th>
-          <th>Note</th>
-        </tr>
-        
-        <TableComponent v-for="element in item.Class"
-          :name="item.NameStudent"
-          :class="element.Name"
-          :note="element.Note"
-        />
-        
-      </table>
+      <table>
+    <tr>
+      <th>Name</th>
+      <th>Classes</th>
+      <th>Notes</th>
+    </tr>
+    <TableComponent v-for="item in students"
+      :name="item.NameStudent"
+      :classes="item.Class[0].Name"
+      :note="item.Class[0].Note"
+    />
+  </table>
+
       
     </section>
   </template>
 
 <style lang="scss" scoped>
-table{
-  border: dotted 3px green;
-}
+#register-zone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  h1 {
+    margin-bottom: 2rem;
+  }
+  .inputs {
+    width: 40%;
+    margin-bottom: 1rem;
+  }
+  .buttons-apartate {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    .buttons {
+      width: 48%;
+    }
+  }}
+  tr{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 30%;
+th{
+  display: grid;
+  gap: 10%;
+}}
     
 </style>

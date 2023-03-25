@@ -1,5 +1,6 @@
 <script setup>
-import { computed } from "vue";
+import { computed, defineProps } from "vue";
+
 const props = defineProps({
   name: {
     type: String,
@@ -14,6 +15,7 @@ const props = defineProps({
     required: true,
   },
 });
+
 const evaluation = computed(() => {
   if (props.note <= 3) {
     return "Muy deficiente";
@@ -39,7 +41,7 @@ const evaluation = computed(() => {
 <template>
   <table>
     <tr>
-      <th>{{ name }}</th>
+      <td>{{ name }}</td>
       <td>{{ classes }}</td>
       <td>{{ evaluation }}</td>
     </tr>
@@ -47,8 +49,15 @@ const evaluation = computed(() => {
 </template>
 
 <style lang="scss">
-
-table{
-  border: solid 4px red;
+table {
+  margin: 0 auto;
+  border-collapse: collapse;
 }
+
+ td {
+  padding: 10px;
+  text-align: center;
+
+}
+
 </style>
